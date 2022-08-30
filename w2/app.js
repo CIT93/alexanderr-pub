@@ -1,38 +1,40 @@
-// showOnPage will output on the webpage any content we provide to it.
-
-const showOnPage = function (text) {
-    let newParagraph = document.createElement('p');
-    newParagraph.innerHTML = text;
-    let outputDiv = document.getElementById('output');
-    outputDiv.append(newParagraph);
-  };
-
-//My daily decision is determining if I have time to play video games on a given day.
-
-//This is the global variable that tells me I definitely have time to game on a given day.
-let haveHomework = false
-let cookDinner = false
-
-showOnPage(
-    '<b>This output is based on the following global variable data:</b>'
-  );
-showOnPage('Do I have homework?----->' + haveHomework)
-showOnPage('Do I have to cook dinner?----->' + cookDinner)
-showOnPage('<----- End of global variale data ----->')
-
-let message = ''
-let hellYeah = 'Time to game'
-
-showOnPage('<b>Time for gaming?</b>');
-showOnPage('___________________');
-
-if (haveHomework && cookDinner) {
-    hellYeah = hellYeah + currentTime
-} else if (haveHomework || cookDinner) {
-    message = 'I will have some time to game.'
-} else {
-    message = 'I will not have much time to game'
+const displayOnPage = function (text) {
+  let newParagraph = document.createElement("p")
+  newParagraph.innerHTML = text
+  let outputDiv = document.getElementById("output")
+  outputDiv.append(newParagraph)
 }
 
-showOnPage(message);
-showOnPage(hellYeah);
+
+let areTheDishesWashed = true  
+let hasDinnerBeenCooked = true
+
+
+if(areTheDishesWashed){ // If statement
+  displayOnPage("Nice, the dishes have been taken care of.")
+
+}else if(areTheDishesWashed === false){ // If else statement
+  displayOnPage('Go get your chore done bum.')
+}
+
+
+if(areTheDishesWashed && hasDinnerBeenCooked) //and operator
+{
+  displayOnPage('<b>Go to sleep then, I guess you earned it.</b>')
+}
+
+if(!areTheDishesWashed || !hasDinnerBeenCooked ){
+  displayOnPage("Dude, what the hell?")
+}
+
+let time = howMuchTime(5) //global variable 
+
+let timeConverter = function(x){ //This function takes the mintues and converts it to hours
+hours = x/75
+displayOnPage(hours)
+}
+
+timeConverter(600)
+
+
+//displayOnPage(output)
